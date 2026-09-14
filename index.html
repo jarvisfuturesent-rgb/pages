@@ -3,89 +3,146 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>PULSE — Earn. Complete. Get Rewarded.</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header class="topbar">
-    <div class="logo">PULSE</div>
+  <main class="app-shell">
 
-    <nav>
-      <a href="#how-it-works">How It Works</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <!-- TOP -->
+    <header class="hero">
 
-  <main>
+      <img
+        src="https://raw.githubusercontent.com/jarvisfuturesent-rgb/Frontend/main/pulse-logo.png"
+        alt="PULSE Token"
+        class="pulse-logo"
+      >
 
-    <section class="hero">
-      <div class="hero-content">
-        <p class="eyebrow">WELCOME TO PULSE</p>
+      <h1>Welcome to PULSE</h1>
 
-        <h1>Earn rewards by completing tasks.</h1>
+      <p class="tagline">
+        Complete • Earn • Get Rewarded
+      </p>
 
-        <p class="hero-text">
-          Complete approved tasks, earn points, and request rewards
-          through the PULSE platform.
-        </p>
+      <!-- DROPDOWN MENU -->
+      <details class="menu">
+        <summary>☰ Menu</summary>
 
-        <div class="buttons">
-          <a class="button primary" href="#get-started">Get Started</a>
-          <a class="button secondary" href="#how-it-works">Learn More</a>
+        <div class="menu-panel">
+          <a href="#home">Home</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#about">About PULSE</a>
+          <a href="#contact">Contact</a>
+          <a href="https://jarvisfuturesent-rgb.github.io/Frontend/">
+            Enter PULSE
+          </a>
         </div>
-      </div>
+      </details>
+
+    </header>
+
+
+    <!-- HOME -->
+    <section id="home" class="panel intro">
+
+      <h2>Earn Rewards</h2>
+
+      <p>
+        Complete approved tasks, earn points, and request rewards
+        through the PULSE platform.
+      </p>
+
+      <a
+        class="gradient-button"
+        href="https://jarvisfuturesent-rgb.github.io/Frontend/"
+      >
+        Enter PULSE
+      </a>
+
     </section>
 
-    <section id="how-it-works" class="section">
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="panel">
+
       <h2>How It Works</h2>
 
-      <div class="cards">
+      <div class="steps">
 
-        <div class="card">
-          <div class="number">1</div>
+        <div class="step">
+          <span>1</span>
           <h3>Create an Account</h3>
-          <p>Sign up and access your PULSE dashboard.</p>
+          <p>
+            Join PULSE and access your account.
+          </p>
         </div>
 
-        <div class="card">
-          <div class="number">2</div>
+        <div class="step">
+          <span>2</span>
           <h3>Complete Tasks</h3>
-          <p>Choose available tasks and submit your work.</p>
+          <p>
+            Choose available tasks and submit your work.
+          </p>
         </div>
 
-        <div class="card">
-          <div class="number">3</div>
+        <div class="step">
+          <span>3</span>
           <h3>Earn Rewards</h3>
-          <p>Approved activity earns points that can be used to request rewards.</p>
+          <p>
+            Approved activity earns points that can be used
+            toward rewards.
+          </p>
         </div>
 
       </div>
+
     </section>
 
-    <section id="about" class="section about">
+
+    <!-- ABOUT -->
+    <section id="about" class="panel">
+
       <h2>About PULSE</h2>
+
       <p>
-        PULSE is a platform designed to connect users with tasks,
-        activities, and reward opportunities in one simple place.
+        PULSE is a simple rewards platform connecting users
+        with tasks, activities, and opportunities to earn.
       </p>
+
     </section>
 
-    <section id="get-started" class="cta">
-      <h2>Ready to get started?</h2>
-      <p>Join PULSE and start exploring available opportunities.</p>
 
-      <!-- Replace this with the live PULSE app URL later -->
-      <a class="button primary" href="#">Enter PULSE</a>
+    <!-- CTA -->
+    <section class="panel cta">
+
+      <h2>Ready to Get Started?</h2>
+
+      <p>
+        Enter PULSE and start exploring available opportunities.
+      </p>
+
+      <a
+        class="gradient-button"
+        href="https://jarvisfuturesent-rgb.github.io/Frontend/"
+      >
+        Enter PULSE
+      </a>
+
     </section>
+
+
+    <!-- FOOTER -->
+    <footer id="contact">
+
+      <p>© 2026 PULSE. All rights reserved.</p>
+
+    </footer>
 
   </main>
-
-  <footer id="contact">
-    <p>© 2026 PULSE. All rights reserved.</p>
-  </footer>
 
 </body>
 </html>
