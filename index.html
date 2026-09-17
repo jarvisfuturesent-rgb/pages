@@ -7,6 +7,9 @@
   <title>PULSE — Earn. Complete. Get Rewarded.</title>
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -33,24 +36,34 @@
         <summary>☰ Menu</summary>
 
         <div class="menu-panel">
+
           <a href="#home">Home</a>
-          <a href="#how-it-works">How It Works</a>
-          <a href="#about">About PULSE</a>
-          <a href="#contact">Contact</a>
+
+          <a href="#how-it-works">
+            How It Works
+          </a>
+
+          <a href="#about">
+            About PULSE
+          </a>
+
+          <a href="#contact">
+            Contact
+          </a>
 
           <a href="https://jarvisfuturesent-rgb.github.io/Frontend/">
             Enter PULSE
           </a>
 
           <!-- ADMIN DASHBOARD -->
-          <!-- Hidden until the admin check allows it -->
           <a
             id="admin-dashboard-link"
-            href="https://jarvisfuturesent-rgb.github.io/Frontend/?admin=1"
-            style="display: none;"
+            href="https://jarvisfuturesent-rgb.github.io/Frontend/"
+            style="display:none;"
           >
             ⚙ Admin Dashboard
           </a>
+
         </div>
       </details>
 
@@ -86,23 +99,31 @@
 
         <div class="step">
           <span>1</span>
+
           <h3>Create an Account</h3>
+
           <p>
             Join PULSE and access your account.
           </p>
         </div>
 
+
         <div class="step">
           <span>2</span>
+
           <h3>Complete Tasks</h3>
+
           <p>
             Choose available tasks and submit your work.
           </p>
         </div>
 
+
         <div class="step">
           <span>3</span>
+
           <h3>Earn Rewards</h3>
+
           <p>
             Approved activity earns points that can be used
             toward rewards.
@@ -149,10 +170,87 @@
     <!-- FOOTER -->
     <footer id="contact">
 
-      <p>© 2026 PULSE. All rights reserved.</p>
+      <p>
+        © 2026 PULSE. All rights reserved.
+      </p>
+
     </footer>
 
   </main>
+
+
+  <!-- ADMIN ACCESS CHECK -->
+  <script>
+    const SUPABASE_URL =
+      "https://egeftdnvgcqjjavrpohd.supabase.co";
+
+    const SUPABASE_ANON_KEY =
+      "sb_publishable_bhnKTWbI3aS0yFABUMWaOg_nkEBlTgv";
+
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+      );
+
+    async function checkAdminAccess() {
+
+      const adminLink =
+        document.getElementById("admin-dashboard-link");
+
+      if (!adminLink) return;
+
+      try {
+
+        const {
+          data: {
+            user
+          }
+        } = await supabaseClient.auth.getUser();
+
+        if (!user) {
+          adminLink.style.display = "none";
+          return;
+        }
+
+        const {
+          data: profile,
+          error
+        } = await supabaseClient
+          .from("profiles")
+          .select("role")
+          .eq("id", user.id)
+          .maybeSingle();
+
+        if (error) {
+          console.error(
+            "Admin check failed:",
+            error
+          );
+
+          adminLink.style.display = "none";
+          return;
+        }
+
+        if (profile && profile.role === "admin") {
+          adminLink.style.display = "block";
+        } else {
+          adminLink.style.display = "none";
+        }
+
+      } catch (error) {
+
+        console.error(
+          "Admin access check failed:",
+          error
+        );
+
+        adminLink.style.display = "none";
+      }
+    }
+
+    checkAdminAccess();
+  </script>
 
 </body>
 </html>
